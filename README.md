@@ -18,7 +18,7 @@ how to use
 
 in the deployment descriptor of your application the following context parameters must be used to configure the servlet :
 
-- quartz-authorization-class class name of the `QuartzUtilityAuthorization` implementation. **optional parameter**, if not defined `eu.pm.tools.log4j.Log4jApplicationContext.DefaultLog4jUtilityAuthorization` will be used.
+- quartz-authorization-class class name of the `QuartzUtilityAuthorization` implementation. **optional parameter**, if not defined `eu.pm.tools.quartz.DefaultQuartzUtilityAuthorization` will be used.
 - quartz-jsp-location, location of the JSP files. **optional parameter** , if not defined `/WEB-INF/jsp` will be used.
 
 (?)
