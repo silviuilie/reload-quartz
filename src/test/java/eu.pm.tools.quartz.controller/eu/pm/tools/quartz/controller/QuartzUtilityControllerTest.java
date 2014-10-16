@@ -1,7 +1,8 @@
-package eu.pm.tools.quartz.controller;
+package eu.pm.tools.quartz.controller.eu.pm.tools.quartz.controller;
 
 import eu.pm.tools.quartz.QuartzApplicationContext;
 import eu.pm.tools.quartz.QuartzUtilityAuthorization;
+import eu.pm.tools.quartz.controller.QuartzUtilityController;
 import org.junit.Before;
 import org.junit.Test;
 import org.quartz.*;
