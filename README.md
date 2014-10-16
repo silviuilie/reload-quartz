@@ -7,7 +7,7 @@ quartz utility
 why to use
 ---
 
-if you need to change quartz (2) scheduled job/trigger states (or CronTrigger cron expressions) at runtime.
+if you need to change quartz (>=2.2.1) scheduled job/trigger states (or CronTrigger cron expressions) at runtime.
 
 
 how to use
