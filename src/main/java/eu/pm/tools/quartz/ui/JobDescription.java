@@ -10,7 +10,6 @@ import java.util.List;
  *     describes a job
  * </p>
  * <br/>
- * log4j-level-reloader|eu.pm.tools.quartz.ui
  *
  * @author Silviu Ilie
  */

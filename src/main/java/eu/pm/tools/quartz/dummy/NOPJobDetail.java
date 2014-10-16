@@ -19,7 +19,6 @@ import static org.quartz.TriggerBuilder.newTrigger;
  * </p>
  * <p/>
  * <br/>
- * log4j-level-reloader|eu.pm.tools.quartz.dummy
  *
  * @author Silviu Ilie
  */
