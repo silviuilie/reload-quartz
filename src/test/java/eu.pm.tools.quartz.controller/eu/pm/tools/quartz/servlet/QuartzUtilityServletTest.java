@@ -412,7 +412,7 @@ public class QuartzUtilityServletTest {
 
         verify(schedulerMock, times(2)).getJobKeys(GroupMatcher.jobGroupEquals(target));
 
-        verify(mockJobDetail, times(2)).getKey();
+        verify(mockJobDetail, times(1)).getKey();
 
         verify(schedulerMock, times(2)).getJobDetail(jobKey);
 
