@@ -5,10 +5,8 @@ import eu.pm.tools.quartz.QuartzUtility;
 import eu.pm.tools.quartz.QuartzUtilityAuthorization;
 import org.junit.Before;
 import org.junit.Test;
-import org.quartz.JobDetail;
-import org.quartz.JobKey;
-import org.quartz.Scheduler;
-import org.quartz.SchedulerException;
+import org.quartz.*;
+import org.quartz.impl.JobDetailImpl;
 import org.quartz.impl.matchers.GroupMatcher;
 
 import javax.servlet.RequestDispatcher;
@@ -25,6 +23,7 @@ import java.util.ArrayList;
 import java.util.HashSet;
 
 import static org.mockito.Mockito.*;
+import static org.quartz.TriggerBuilder.newTrigger;
 
 /**
  * <p>
@@ -53,6 +52,9 @@ public class QuartzUtilityServletTest {
 
     private Scheduler schedulerMock = mock(Scheduler.class);
 
+    public class TestJob extends JobDetailImpl {
+
+    }
 
     @Before
     public void init() throws ServletException, IOException {
@@ -336,6 +338,91 @@ public class QuartzUtilityServletTest {
         verify(schedulerMock).getJobDetail(jobKey);
 
         verify(schedulerMock).interrupt(mockJobDetail.getKey());
+    }
+
+    @Test
+    public void doPost_setNewTrigger() throws ServletException, IOException, SchedulerException {
+
+        final String target = "target";
+        final String trigger = "trigger";
+        final String group = "DEFAULT";
+        final String newExpression = "0 1 1 * * ?";
+        final String oldExpression = "0 0/2 8-17 * * ?";
+
+        final JobKey jobKey = new JobKey(target, group);
+
+        final JobDetailImpl mockJobDetail = mock(JobDetailImpl.class);
+
+
+        when(httpRequestMock.getRequestURI()).thenReturn(QuartzUtility.QUARTZ_UTILITY_CHANGE_TRIGGER);
+
+        when(httpRequestMock.getSession()).thenReturn(httpSessionMock);
+
+        when(httpRequestMock.getParameter(target)).thenReturn(target);
+        when(httpRequestMock.getParameter(trigger)).thenReturn(trigger);
+        when(httpRequestMock.getParameter("newExpression")).thenReturn(newExpression);
+        when(httpRequestMock.getParameter("oldExpression")).thenReturn(oldExpression);
+
+        when(authorizationMock.authorize(httpSessionMock)).thenReturn(true);
+
+        when(schedulerMock.getJobGroupNames()).thenReturn(new ArrayList<String>() {{
+            add(target);
+        }});
+
+        when(schedulerMock.getJobKeys(GroupMatcher.jobGroupEquals(target))).thenReturn(
+            new HashSet<JobKey>() {{
+                add(jobKey);
+            }}
+        );
+
+        when(schedulerMock.getJobDetail(jobKey)).thenReturn(mockJobDetail);
+
+        when(mockJobDetail.getKey()).thenReturn(jobKey);
+        when(mockJobDetail.getName()).thenReturn(target);
+        TestJob testJob = new TestJob();
+        Class jobClass = testJob.getClass();
+        when(mockJobDetail.getJobClass()).thenReturn(jobClass);
+
+
+        /**
+         * call list first
+         */
+        HttpServletRequest mockListRequest = mock(HttpServletRequest.class);
+        HttpServletResponse mockListResponse = mock(HttpServletResponse.class);
+        HttpSession httpListSessionMock = mock(HttpSession.class);
+        when(mockListRequest.getRequestURI()).thenReturn(QuartzUtility.QUARTZ_UTILITY_LIST);
+        when(mockListRequest.getSession()).thenReturn(httpListSessionMock);
+        when(authorizationMock.authorize(httpListSessionMock)).thenReturn(true);
+        when(mockListResponse.getWriter()).thenReturn(writerMock);
+        tested.doGet(mockListRequest, mockListResponse);
+
+
+        /**
+         * call setNewTrigger
+         */
+        tested.doPost(httpRequestMock, httpResponseMock);
+
+        verify(httpRequestMock).getRequestURI();
+
+        verify(httpRequestMock).getSession();
+
+        verify(authorizationMock).authorize(httpSessionMock);
+
+        verify(schedulerMock, times(2)).getJobGroupNames();
+
+        verify(schedulerMock, times(2)).getJobKeys(GroupMatcher.jobGroupEquals(target));
+
+        verify(mockJobDetail, times(2)).getKey();
+
+        verify(schedulerMock, times(2)).getJobDetail(jobKey);
+
+        verify(schedulerMock).rescheduleJob(
+                new TriggerKey(trigger, group),
+                newTrigger().withIdentity(trigger)
+                .forJob(mockJobDetail)
+                .withSchedule(CronScheduleBuilder.cronSchedule(newExpression))
+                .build()
+        );
     }
 
 }

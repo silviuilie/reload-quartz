@@ -537,6 +537,7 @@ public class QuartzUtility {
                     }});
                 }});
             } catch (Throwable e) {
+                log.error("failed to get quartz details : " + e.getMessage(),e);
                 return toJSON(
                         new QuartzConfigResetResponse("render detaisl failed " + e,
                                 QuartzConfigResetResponse.Type.ERROR)
@@ -591,7 +592,7 @@ public class QuartzUtility {
                 }
             }
         } catch (Exception e) {
-            log.error(e);
+            log.error(e.getMessage(), e);
             throw new RuntimeException(e);
         }
 
