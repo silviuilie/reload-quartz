@@ -61,21 +61,11 @@ public class NOPJobDetail implements Job {
         );
 
         scheduler.start();
-/*
-
-        for (String group : scheduler.getJobGroupNames()) {
-            System.out.println("group = " + group);
-        }
-
-*/
 
         for(String group: scheduler.getJobGroupNames()) {
             // enumerate each job in group
             for(JobKey jobKey : scheduler.getJobKeys(GroupMatcher.<JobKey>groupEquals(group))) {
-                System.out.println("Found job identified by: " + jobKey);
-                System.out.println("=>" + scheduler.getJobDetail(jobKey));
                 JobDetail jd = scheduler.getJobDetail(jobKey);
-                System.out.println("=>" + jd.getJobDataMap());
                 for (Trigger trigger : scheduler.getTriggersOfJob(jobKey)) {
                     if (trigger instanceof CronTrigger) {
                         System.out.println("=>" + ((CronTrigger)trigger).getCronExpression());
