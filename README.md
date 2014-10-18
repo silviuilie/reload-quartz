@@ -3,6 +3,9 @@ reload-quartz
 
 [quartz-scheduler](http://quartz-scheduler.org/) utility
 
+[![Build Status](https://travis-ci.org/silviuilie/reload-quartz.svg?branch=master)](https://travis-ci.org/silviuilie/reload-quartz)
+
+[![Coverage Status](https://coveralls.io/repos/silviuilie/reload-quartz/badge.png?branch=master)](https://coveralls.io/r/silviuilie/reload-quartz?branch=master)
 
 why to use
 ---
