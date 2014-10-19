@@ -284,6 +284,62 @@ public class QuartzUtilityServletTest {
     }
 
     @Test
+    public void doPost_pauseTrigger() throws ServletException, IOException, SchedulerException {
+
+        final String target = "target";
+        final String group = "group";
+
+        final TriggerKey triggerKey = new TriggerKey(target, group);
+
+        when(httpRequestMock.getRequestURI()).thenReturn(QuartzUtility.QUARTZ_UTILITY_PAUSE_TRIGGER);
+
+        when(httpRequestMock.getSession()).thenReturn(httpSessionMock);
+
+        when(httpRequestMock.getParameter("triggerName")).thenReturn(target);
+        when(httpRequestMock.getParameter("triggerGroup")).thenReturn(group);
+
+        when(authorizationMock.authorize(httpSessionMock)).thenReturn(true);
+
+        tested.doPost(httpRequestMock, httpResponseMock);
+
+        verify(httpRequestMock).getRequestURI();
+
+        verify(httpRequestMock).getSession();
+
+        verify(authorizationMock).authorize(httpSessionMock);
+
+        verify(schedulerMock).pauseTrigger(triggerKey);
+    }
+
+    @Test
+    public void doPost_resumeTrigger() throws ServletException, IOException, SchedulerException {
+
+        final String target = "target";
+        final String group = "group";
+
+        final TriggerKey triggerKey = new TriggerKey(target, group);
+
+        when(httpRequestMock.getRequestURI()).thenReturn(QuartzUtility.QUARTZ_UTILITY_RESUME_TRIGGER);
+
+        when(httpRequestMock.getSession()).thenReturn(httpSessionMock);
+
+        when(httpRequestMock.getParameter("triggerName")).thenReturn(target);
+        when(httpRequestMock.getParameter("triggerGroup")).thenReturn(group);
+
+        when(authorizationMock.authorize(httpSessionMock)).thenReturn(true);
+
+        tested.doPost(httpRequestMock, httpResponseMock);
+
+        verify(httpRequestMock).getRequestURI();
+
+        verify(httpRequestMock).getSession();
+
+        verify(authorizationMock).authorize(httpSessionMock);
+
+        verify(schedulerMock).resumeTrigger(triggerKey);
+    }
+
+    @Test
     public void doPost_interruptJob() throws ServletException, IOException, SchedulerException {
 
         final String target = "target";
