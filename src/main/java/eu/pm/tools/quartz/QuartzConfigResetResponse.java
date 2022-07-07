@@ -18,7 +18,8 @@ import java.util.Date;
 public class QuartzConfigResetResponse {
 
     public enum Type {
-        ERROR, SUCCESS
+        ERROR,
+        SUCCESS
     }
 
     private String message;

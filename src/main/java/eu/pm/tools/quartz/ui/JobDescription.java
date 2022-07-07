@@ -20,6 +20,7 @@ public class JobDescription {
     private String description;
     private String className;
     private Boolean paused;
+
     private List<SimpleCronExpression> cronExpressions = new ArrayList<SimpleCronExpression>(1);
 
     public String getClassName() {
