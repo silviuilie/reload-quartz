@@ -1,12 +1,11 @@
 package eu.pm.tools.quartz;
 
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import eu.pm.tools.quartz.ui.JobDescription;
 import eu.pm.tools.quartz.ui.SimpleCronExpression;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.codehaus.jackson.annotate.JsonAutoDetect;
-import org.codehaus.jackson.annotate.JsonMethod;
-import org.codehaus.jackson.map.ObjectMapper;
 import org.quartz.*;
 import org.quartz.impl.JobDetailImpl;
 import org.quartz.impl.StdSchedulerFactory;
@@ -123,7 +122,7 @@ public class QuartzUtility {
      * default constructor.
      */
     protected QuartzUtility() {
-        mapper.setVisibility(JsonMethod.FIELD, JsonAutoDetect.Visibility.ANY);
+        mapper.setVisibility(mapper.getVisibilityChecker().withFieldVisibility(JsonAutoDetect.Visibility.ANY));
     }
 
     private static class UtilityContainer {
