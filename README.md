@@ -58,6 +58,9 @@ utilities to *all requests*. To restrict access, create your own authorization b
 
 and initialize `QuartzApplicationContext` using it.
 
+
+
+
 #### configure spring component scanner to include `eu.pm.tools.quartz` package
 
 
@@ -72,6 +75,8 @@ and initialize `QuartzApplicationContext` using it.
 (?) This is needed to enable @Controller class that manages the utility requests.
 
 
+
+
 #### web.xml configuration
 
 Add the the *.quartz url extension to your DispatcherServlet :
@@ -84,8 +89,10 @@ Add the the *.quartz url extension to your DispatcherServlet :
 (?) This is needed to enable your DispatcherServlet to serve the utility requests :
 
 
+
 - `quartz.quartz` is the "home" of the utility, loads the UI,
 - see QuartzUtility.QUARTZ_UTILITY_* constants for all requests
+
 
 
 #### JSP configuration
