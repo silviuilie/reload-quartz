@@ -83,8 +83,10 @@ Add the the *.quartz url extension to your DispatcherServlet :
 
 (?) This is needed to enable your DispatcherServlet to serve the utility requests :
 
+
 - `quartz.quartz` is the "home" of the utility, loads the UI,
 - see QuartzUtility.QUARTZ_UTILITY_* constants for all requests
+
 
 #### JSP configuration
 
