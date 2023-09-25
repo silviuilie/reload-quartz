@@ -9,10 +9,11 @@
     <url>none</url>
     <properties>
         <java.version>8</java.version>
+        <!-- 
         <maven.compiler.target>8</maven.compiler.target>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.release>8</maven.compiler.release>
-
+        -->
         <spring.version>[5.2.22.RELEASE,)</spring.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <log4j.reload.repoToken>${project.repoToken}</log4j.reload.repoToken>
