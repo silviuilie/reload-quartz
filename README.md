@@ -1,9 +1,7 @@
 reload-quartz
 ==============
 
-[quartz-scheduler](http://quartz-scheduler.org/) utility
-[![Coverage Status](https://coveralls.io/repos/silviuilie/reload-quartz/badge.png?branch=master)](https://coveralls.io/r/silviuilie/reload-quartz?branch=master)
-[![Dependency Status](https://www.versioneye.com/user/projects/54436bbf53acfaccc8000025/badge.svg?style=flat)](https://www.versioneye.com/user/projects/54436bbf53acfaccc8000025)
+[quartz-scheduler](http://quartz-scheduler.org/) utility [![Coverage Status](https://coveralls.io/repos/silviuilie/reload-quartz/badge.png?branch=master)](https://coveralls.io/r/silviuilie/reload-quartz?branch=master) [![Dependency Status](https://www.versioneye.com/user/projects/54436bbf53acfaccc8000025/badge.svg?style=flat)](https://www.versioneye.com/user/projects/54436bbf53acfaccc8000025)
 
 why  
 ===
