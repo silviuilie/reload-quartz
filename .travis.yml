@@ -1,9 +1,0 @@
-language: java
-jdk:
-  - oraclejdk7
-
-install:
-  - mvn cobertura:cobertura
-
-after_success:
-  -  mvn test cobertura:cobertura coveralls:cobertura
