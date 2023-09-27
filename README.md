@@ -96,6 +96,6 @@ Add the the *.quartz url extension to your DispatcherServlet :
 #### JSP configuration
 
 If the host application JSPs are not located in the (more or less) standard location `/WEB-INF/jsp/`, add a new
-view resolver in your spring configuration with the `/WEB-INF/jsp/` prefix.
+view resolver in your spring configuration with the `/WEB-INF/jsp/`prefix.
 Otherwise, no other configuration is required.
 
