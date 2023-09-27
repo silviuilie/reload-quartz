@@ -8,13 +8,13 @@ reload-quartz
 [quartz-scheduler](http://quartz-scheduler.org/) utility 
 
 why  
-===
+=
 
 if you need to change quartz (>=2.2.1) scheduled job/trigger states (or CronTrigger cron expressions) at runtime.
 
 
 how to use
-===
+=
 
 1. as a Servlet
 ---
