@@ -32,7 +32,12 @@ jobs:
       run: mvn clean verify -B package --file pom.xml
     - name: cov
       run: mvn cobertura:cobertura  --file pom.xml
-
+    - name: cov report
+      uses: irongut/CodeCoverageSummary@v1.3.0
+      with:
+        filename: coverage/**/coverage.cobertura.xml
+        badge: true
+        
     # Optional: Uploads the full dependency graph to GitHub to improve the quality of Dependabot alerts this repository can receive
     - name: Update dependency graph
       uses: advanced-security/maven-dependency-submission-action@571e99aab1055c2e71a1e2309b9691de18d6b7d6
