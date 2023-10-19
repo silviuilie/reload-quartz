@@ -171,6 +171,7 @@
                     </formats>
                 </configuration>
             </plugin>
+                 <!--
             <plugin>
                 <groupId>org.eluder.coveralls</groupId>
                 <artifactId>coveralls-maven-plugin</artifactId>
@@ -180,6 +181,7 @@
                     <repoToken>${log4j.reload.repoToken}</repoToken>
                 </configuration>
             </plugin>
+                 -->
         </plugins>
 
     </build>
