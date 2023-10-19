@@ -35,7 +35,7 @@ jobs:
     - name: cov report
       uses: irongut/CodeCoverageSummary@v1.3.0
       with:
-        filename:  /**/*cobertura.xml
+        filename:  /target/site/cobertura/*.xml
         badge: true
         
     # Optional: Uploads the full dependency graph to GitHub to improve the quality of Dependabot alerts this repository can receive
