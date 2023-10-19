@@ -1,3 +1,3 @@
-new File("/github/workspace/target/site/cobertura/coverage.xml").eachLine { line ->
+new File("target/site/cobertura/coverage.xml").eachLine { line ->
     println line
 }
