@@ -33,7 +33,7 @@ jobs:
     - name: cov
       run: mvn cobertura:cobertura  --file pom.xml
     - name: cov report
-      uses: irongut/CodeCoverageSummary@v1.3.0
+      uses: irongut/CodeCoverageSummary@v1.3.0 
       with:
         filename:  /target/site/cobertura/coverage.xml
         badge: true
