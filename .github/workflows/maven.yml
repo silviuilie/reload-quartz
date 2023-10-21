@@ -42,7 +42,7 @@ jobs:
     # Add dependencies (libraries + build tools)
     - name: copy coverage
       run: |
-        cp /home/runner/work/reload-quartz/reload-quartz.xml target/reload-quartz.xml
+        cp target/site/cobertura/coverage.xml target/reload-quartz.xml
         
     # - uses: actions/download-artifact@v2
       # with:
