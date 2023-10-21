@@ -189,6 +189,9 @@
            </configuration>
        </plugin>
             -->
+
+
+                 <!--
             <plugin>
                 <groupId>org.codehaus.gmaven</groupId>
                 <artifactId>groovy-maven-plugin</artifactId>
@@ -205,6 +208,7 @@
                     <source>src/get-cober.groovy</source>
                 </configuration>
             </plugin>
+                 -->
         </plugins>
 
     </build>
