@@ -32,16 +32,21 @@ jobs:
       run: mvn clean verify -B package --file pom.xml
     - name: cov
       run: mvn cobertura:cobertura  --file pom.xml 
-    - uses: actions/upload-artifact@v2
-      with:
-        name: latest-coverage
-        path: target/site/cobertura/coverage.xml
+    # - uses: actions/upload-artifact@v2
+      # with:
+        # name: latest-coverage
+        # path: target/site/cobertura/coverage.xml
 
-    - uses: actions/checkout@v2
-    
-    - uses: actions/download-artifact@v2
-      with:
-        name: latest-coverage
+    # - uses: actions/checkout@v2
+
+    # Add dependencies (libraries + build tools)
+    - name: copy coverage
+      run: |
+        cp /home/runner/work/reload-quartz/reload-quartz.xml target/reload-quartz.xml
+        
+    # - uses: actions/download-artifact@v2
+      # with:
+        # name: latest-coverage
     # - name: cov report
       # uses: irongut/CodeCoverageSummary@v1.3.0 
       # with:
