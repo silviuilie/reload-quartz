@@ -36,7 +36,12 @@ jobs:
       with:
         name: latest-coverage
         path: target/site/cobertura/coverage.xml
+
+    - uses: actions/checkout@v2
     
+    - uses: actions/download-artifact@v2
+      with:
+        name: latest-coverage
     # - name: cov report
       # uses: irongut/CodeCoverageSummary@v1.3.0 
       # with:
