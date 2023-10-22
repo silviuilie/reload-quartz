@@ -47,6 +47,7 @@ jobs:
     # - uses: actions/download-artifact@v2
       # with:
         # name: latest-coverage
+# TODO remove, take cov from xml
     - name: cov report
       uses: irongut/CodeCoverageSummary@v1.3.0 
       with:
@@ -56,7 +57,9 @@ jobs:
         badge: true
 
 
-  #  git add code-coverage-results.md
+
+
+# sed -i 's/\[!\[Coverage\ Status\]\(.*\)/ooo/' readme.md
     - name: commit coverage
       run: |
          cat code-coverage-results.md

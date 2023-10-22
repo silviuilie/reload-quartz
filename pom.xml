@@ -198,7 +198,7 @@
                 <version>2.1.1</version>
                 <executions>
                     <execution>
-                        <phase>validate</phase>
+                        <phase>post-integration-test</phase>
                         <goals>
                             <goal>execute</goal>
                         </goals>
