@@ -55,12 +55,13 @@ jobs:
         format: markdown
         badge: true
 
+
+  #  git add code-coverage-results.md
     - name: commit coverage
       run: |
          cat code-coverage-results.md
          git config user.name silviuilie
          git config user.email silviuilie@gmail.com
-         git add code-coverage-results.md
          git commit -m "coverage update"
          git push 
         
