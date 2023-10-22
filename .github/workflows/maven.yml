@@ -54,6 +54,10 @@ jobs:
         output: file
         format: markdown
         badge: true
+
+    - name: print coverage to console
+      run: |
+         cat code-coverage-results.md
         
     # Optional: Uploads the full dependency graph to GitHub to improve the quality of Dependabot alerts this repository can receive
     - name: Update dependency graph
