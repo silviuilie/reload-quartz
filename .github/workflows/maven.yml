@@ -58,11 +58,12 @@ jobs:
 
 
 
-
-# sed -i 's/\[!\[Coverage\ Status\]\(.*\)/ooo/' readme.md
+ 
     - name: commit coverage
       run: |
          cat code-coverage-results.md
+         cov = "$(head -1 code-coverage-results.md .env)"
+         echo $cov
          git config user.name silviuilie
          git config user.email silviuilie@gmail.com
          git add code-coverage-results.md
