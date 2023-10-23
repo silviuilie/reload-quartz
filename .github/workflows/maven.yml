@@ -62,7 +62,7 @@ jobs:
     - name: commit coverage
       run: |
          cat code-coverage-results.md
-         cov = "$(head -1 code-coverage-results.md .env)"
+         cov = "$(head -1 code-coverage-results.md)"
          echo $cov
          git config user.name silviuilie
          git config user.email silviuilie@gmail.com
