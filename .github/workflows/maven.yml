@@ -63,9 +63,10 @@ jobs:
       run: |
          cat code-coverage-results.md
          cov = "$(head -1 code-coverage-results.md)"
+         echo "cov line:"
          echo $cov
-         git config user.name silviuilie
-         git config user.email silviuilie@gmail.com
+    # git config user.name silviuilie
+    # git config user.email silviuilie@gmail.com
     # git add code-coverage-results.md
     # git commit -m "coverage update"
     # git push 
