@@ -61,7 +61,7 @@ jobs:
  
     - name: commit coverage
       run: |
-         export dcov="$(grep \"<coverage line-rate=\"\(.*\)\" target/site/cobertura/coverage.xml | cut -c 24-27)"
+         export dcov='$(grep "<coverage line-rate="\(.*\)" target/site/cobertura/coverage.xml | cut -c 24-27)'
          echo "direct coverage $dcov"
          export cov="$(head -1 code-coverage-results.md)"
          sed -i "s|\[!\[Coverage\ Status\]\(.*\)|$cov|" README.md
