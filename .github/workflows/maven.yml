@@ -63,7 +63,7 @@ jobs:
       run: |
          cat code-coverage-results.md
          export cov="$(head -1 code-coverage-results.md)"
-         sed -i "s/\[!\[Coverage\ Status\]\(.*\)/$cov/" README.md
+         sed -i "s|\[!\[Coverage\ Status\]\(.*\)|$cov|" README.md
          cat README.md
     # git config user.name silviuilie
     # git config user.email silviuilie@gmail.com
