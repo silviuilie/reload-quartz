@@ -9,7 +9,7 @@ TEST2
 
 [![java/maven build](https://github.com/silviuilie/reload-quartz/actions/workflows/maven.yml/badge.svg)](https://github.com/silviuilie/reload-quartz/actions/workflows/maven.yml)
 
-[![Coverage Status](https://coveralls.io/repos/silviuilie/reload-quartz/badge.png?branch=master)](https://coveralls.io/r/silviuilie/reload-quartz?branch=master) 
+![Code Coverage](https://img.shields.io/badge/Code%20Coverage-0%25-critical?style=flat)
 
 [![Dependency Status](https://www.versioneye.com/user/projects/54436bbf53acfaccc8000025/badge.svg?style=flat)](https://www.versioneye.com/user/projects/54436bbf53acfaccc8000025)
 
