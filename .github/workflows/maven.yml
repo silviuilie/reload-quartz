@@ -65,11 +65,11 @@ jobs:
          export cov="$(head -1 code-coverage-results.md)"
          sed -i "s|\[!\[Coverage\ Status\]\(.*\)|$cov|" README.md
          cat README.md
-    # git config user.name silviuilie
-    # git config user.email silviuilie@gmail.com
-    # git add code-coverage-results.md
-    # git commit -m "coverage update"
-    # git push 
+         git config user.name silviuilie
+         git config user.email silviuilie@gmail.com
+         git add code-coverage-results.md
+         git commit -m "coverage update"
+         git push 
         
     # Optional: Uploads the full dependency graph to GitHub to improve the quality of Dependabot alerts this repository can receive
     - name: Update dependency graph
