@@ -61,7 +61,7 @@ jobs:
  
     - name: commit coverage
       run: |
-         grep "<coverage line-rate="\(.*\)" target/site/cobertura/coverage.xml | cut -c 24-27 > cov.cov
+         grep '<coverage line-rate="\(.*\)' target/site/cobertura/coverage.xml | cut -c 24-27 > cov.cov
          cat cov.cov 
          export cov="$(head -1 code-coverage-results.md)"
          sed -i "s|\[!\[Coverage\ Status\]\(.*\)|$cov|" README.md
