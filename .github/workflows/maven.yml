@@ -59,6 +59,7 @@ jobs:
       # grep '<coverage line-rate="\(.*\)' target/site/cobertura/coverage.xml | cut -c 24-27 > cov.cov
     - name: commit coverage
       run: |
+         head -5 target/site/cobertura/coverage.xml
          grep -m 1 '<coverage line-rate="\(.*\)' target/site/cobertura/coverage.xml > cov.cov
          cat cov.cov 
      # export cov="$(head -1 code-coverage-results.md)"
