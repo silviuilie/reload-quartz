@@ -28,10 +28,10 @@ jobs:
         # distribution: 'corretto'
         distribution: temurin
         cache: maven
-    - name: Build with Maven
-      run: mvn clean verify -B package --file pom.xml
+    # - name: Build with Maven
+      # run: mvn clean verify -B package --file pom.xml
     - name: cov
-      run: mvn cobertura:cobertura  --file pom.xml 
+      run: mvn clean verify cobertura:cobertura  --file pom.xml 
     # - uses: actions/upload-artifact@v2
       # with:
         # name: latest-coverage
