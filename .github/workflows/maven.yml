@@ -31,7 +31,7 @@ jobs:
     # - name: Build with Maven
       # run: mvn clean verify -B package --file pom.xml
     - name: cov
-      run: mvn clean verify cobertura:cobertura  --file pom.xml 
+      run: mvn clean test cobertura:cobertura  --file pom.xml 
     # - uses: actions/upload-artifact@v2
       # with:
         # name: latest-coverage
@@ -48,13 +48,13 @@ jobs:
       # with:
         # name: latest-coverage
 # TODO remove, take cov from xml
-    - name: cov report
-      uses: irongut/CodeCoverageSummary@v1.3.0 
-      with:
-        filename:  target/site/cobertura/coverage.xml
-        output: file
-        format: markdown
-        badge: true
+    # - name: cov report
+      # uses: irongut/CodeCoverageSummary@v1.3.0 
+      # with:
+        # filename:  target/site/cobertura/coverage.xml
+        # output: file
+        # format: markdown
+        # badge: true
 
       # grep '<coverage line-rate="\(.*\)' target/site/cobertura/coverage.xml | cut -c 24-27 > cov.cov
     - name: commit coverage
