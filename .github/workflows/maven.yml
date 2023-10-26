@@ -31,7 +31,7 @@ jobs:
     # - name: Build with Maven
       # run: mvn clean verify -B package --file pom.xml
     - name: cov
-      run: mvn clean test cobertura:cobertura  --file pom.xml 
+      run: mvn test cobertura:cobertura  --file pom.xml 
     # - uses: actions/upload-artifact@v2
       # with:
         # name: latest-coverage
