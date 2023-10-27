@@ -35,9 +35,10 @@ jobs:
       run: mvn clean verify 
       
       # head -5 target/site/jacoco/jacoco.xml
+     # grep -m 1 '<counter type="INSTRUCTION" missed="\(.*\)' target/site/jacoco/jacoco.xml > cov.cov
     - name: commit coverage
       run: |
-         grep -m 1 '<counter type="INSTRUCTION" missed="\(.*\)' target/site/jacoco/jacoco.xml > cov.cov
+         sed -n -e '/<counter type=\"INSTRUCTION" missed=\"/p' jacoco.xml > cov.cov
          cat cov.cov 
          
     # - uses: actions/upload-artifact@v2
