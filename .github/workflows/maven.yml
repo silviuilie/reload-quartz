@@ -34,9 +34,9 @@ jobs:
       # run: mvn test cobertura:cobertura  --file pom.xml 
       run: mvn clean verify 
       
+      # head -5 target/site/jacoco/jacoco.xml
     - name: commit coverage
       run: |
-         head -5 target/site/jacoco/jacoco.xml
          grep -m 1 '<counter type="INSTRUCTION" missed="\(.*\)' target/site/jacoco/jacoco.xml > cov.cov
          cat cov.cov 
          
