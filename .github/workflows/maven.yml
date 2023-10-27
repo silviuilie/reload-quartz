@@ -31,7 +31,15 @@ jobs:
     # - name: Build with Maven
       # run: mvn clean verify -B package --file pom.xml
     - name: cov
-      run: mvn test cobertura:cobertura  --file pom.xml 
+      # run: mvn test cobertura:cobertura  --file pom.xml 
+      run: mvn clean verify 
+      
+    - name: commit coverage
+      run: |
+         head -5 target/site/jacoco
+         grep -m 1 '<counter type="INSTRUCTION" missed="\(.*\)' target/site/jacoco/jacoco.xml > cov.cov
+         cat cov.cov 
+         
     # - uses: actions/upload-artifact@v2
       # with:
         # name: latest-coverage
@@ -57,11 +65,11 @@ jobs:
         # badge: true
 
       # grep '<coverage line-rate="\(.*\)' target/site/cobertura/coverage.xml | cut -c 24-27 > cov.cov
-    - name: commit coverage
-      run: |
-         head -5 target/site/cobertura/coverage.xml
-         grep -m 1 '<coverage line-rate="\(.*\)' target/site/cobertura/coverage.xml > cov.cov
-         cat cov.cov 
+    # - name: commit coverage
+      # run: |
+         # head -5 target/site/cobertura/coverage.xml
+         # grep -m 1 '<coverage line-rate="\(.*\)' target/site/cobertura/coverage.xml > cov.cov
+         # cat cov.cov 
      # export cov="$(head -1 code-coverage-results.md)"
      # sed -i "s|\[!\[Coverage\ Status\]\(.*\)|$cov|" README.md
      # git config user.name silviuilie
