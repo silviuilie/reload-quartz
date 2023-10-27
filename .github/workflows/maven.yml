@@ -38,7 +38,7 @@ jobs:
      # grep -m 1 '<counter type="INSTRUCTION" missed="\(.*\)' target/site/jacoco/jacoco.xml > cov.cov
     - name: commit coverage
       run: |
-         sed -n -e '/<counter type=\"INSTRUCTION" missed=\"/p' target/site/jacoco/jacoco.xml  
+         sed -n -e '/<counter type=\"INSTRUCTION"\(.*)/>\"/p' target/site/jacoco/jacoco.xml  
          
     # - uses: actions/upload-artifact@v2
       # with:
