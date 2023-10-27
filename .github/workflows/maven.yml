@@ -36,7 +36,7 @@ jobs:
       
     - name: commit coverage
       run: |
-         head -5 target/site/jacoco
+         head -5 target/site/jacoco/jacoco.xml
          grep -m 1 '<counter type="INSTRUCTION" missed="\(.*\)' target/site/jacoco/jacoco.xml > cov.cov
          cat cov.cov 
          
