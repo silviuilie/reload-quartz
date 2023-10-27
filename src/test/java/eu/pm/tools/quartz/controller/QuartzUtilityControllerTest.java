@@ -1,4 +1,4 @@
-package eu.pm.tools.quartz.controller.eu.pm.tools.quartz.controller;
+package eu.pm.tools.quartz.controller;
 
 import eu.pm.tools.quartz.QuartzApplicationContext;
 import eu.pm.tools.quartz.QuartzUtilityAuthorization;
