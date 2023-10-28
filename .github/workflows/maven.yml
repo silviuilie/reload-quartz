@@ -49,6 +49,8 @@ jobs:
          echo "missed    : $missed"
          echo "covered   : $covered"
          echo "total     : $total"
+         coverage=$((covered/total))
+         echo "coverage  : $coverage"
     # - uses: actions/upload-artifact@v2
       # with:
         # name: latest-coverage
