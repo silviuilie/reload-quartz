@@ -43,7 +43,7 @@ jobs:
          # cat cov.cov
     - name: commit coverage to README file
       run: |
-         grep -Po '<counter type="\K[^"]+'  target/site/jacoco/jacoco.xml
+         grep -Po '<counter type="INSTRUCTION\K[^"]+'  target/site/jacoco/jacoco.xml
     # - uses: actions/upload-artifact@v2
       # with:
         # name: latest-coverage
