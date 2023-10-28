@@ -49,7 +49,7 @@ jobs:
          echo "missed    : $missed"
          echo "covered   : $covered"
          echo "total     : $total"
-         coverage=$(echo "scale=2; $covered / $total" | bc)
+         coverage=$(echo "scale=4; $covered / $total" | bc)
          echo "coverage  : $coverage"
     # - uses: actions/upload-artifact@v2
       # with:
