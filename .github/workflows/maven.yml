@@ -49,8 +49,10 @@ jobs:
          echo "missed    : $missed"
          echo "covered   : $covered"
          echo "total     : $total"
+         coverage=$(echo "scale=4; ($covered / $total)" | bc)
+         echo "coverage direct : $coverage"
          coverage=$(echo "scale=4; ($covered / $total) * 100" | bc)
-         echo "coverage  : $coverage"
+         echo "coverage *100 : $coverage"
     # - uses: actions/upload-artifact@v2
       # with:
         # name: latest-coverage
