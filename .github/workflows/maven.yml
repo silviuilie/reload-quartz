@@ -44,7 +44,7 @@ jobs:
     - name: commit coverage to README file
       run: |
          totalCov=$(grep -Po '(?<=</package><counter type="INSTRUCTION").*(?=/><counter type="BRANCH")'  target/site/jacoco/jacoco.xml)
-         echo totalCov
+         echo $totalCov
     # - uses: actions/upload-artifact@v2
       # with:
         # name: latest-coverage
