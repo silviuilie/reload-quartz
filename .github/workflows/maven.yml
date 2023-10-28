@@ -45,7 +45,7 @@ jobs:
       run: |
          totalCov=$(grep -Po '(?<=</package><counter type="INSTRUCTION").*(?=/><counter type="BRANCH")'  target/site/jacoco/jacoco.xml)
          eval $totalCov
-         missed = $((missed))
+         missed = $(($missed))
          echo $missed
          echo $covered
     # - uses: actions/upload-artifact@v2
