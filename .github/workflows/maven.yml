@@ -36,11 +36,10 @@ jobs:
       
       # head -5 target/site/jacoco/jacoco.xml
      # grep -m 1 '<counter type="INSTRUCTION" missed="\(.*\)' target/site/jacoco/jacoco.xml > cov.cov
-    - name: commit coverage
+    - name: commit coverage to README file
       run: |
-         cov=$(sed -n -e '/<counter type=\"INSTRUCTION"\(.*\)\/>\"/p' target/site/jacoco/jacoco.xml)
+         cov=$(sed -n -e '/counter type=\"INSTRUCTION"\(.*\)\/>\"/p' target/site/jacoco/jacoco.xml)
          echo $cov
-         
     # - uses: actions/upload-artifact@v2
       # with:
         # name: latest-coverage
