@@ -43,7 +43,9 @@ jobs:
          # cat cov.cov
     - name: commit coverage to README file
       run: |
-         grep -Po '(?<=</package><counter type="INSTRUCTION").*(?=/><counter type="BRANCH")'  target/site/jacoco/jacoco.xml
+         $(grep -Po '(?<=</package><counter type="INSTRUCTION").*(?=/><counter type="BRANCH")'  target/site/jacoco/jacoco.xml)
+         echo $missed
+         echo $covered
     # - uses: actions/upload-artifact@v2
       # with:
         # name: latest-coverage
