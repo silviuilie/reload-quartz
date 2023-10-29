@@ -56,6 +56,7 @@ jobs:
          echo "![Code Coverage](https://img.shields.io/badge/Code%20Coverage-$coverage%25-critical?style=flat)"
          
          sed -i "s|\[!\[Coverage\ Status\]\(.*\)|$coverage|" README.md
+         head -5 README.md
          git config user.name silviuilie
          git config user.email silviuilie@gmail.com
          git add README.md
