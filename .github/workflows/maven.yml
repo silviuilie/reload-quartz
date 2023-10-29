@@ -52,10 +52,9 @@ jobs:
          coverage=$(echo "scale=4; ($covered / $total)" | bc)
          echo "coverage direct : $coverage"
          coverage=$(echo "scale=2; ($covered / $total) * 100" | bc)
-         echo "coverage *100 : $coverage"
-         echo "![Code Coverage](https://img.shields.io/badge/Code%20Coverage-$coverage%25-critical?style=flat)"
-         
-         sed -i "s|!\[Code\ Coverage\]\(.*\)|$coverage|" README.md
+         echo "coverage *100 : $coverage" 
+         coverageBadge="![Code Coverage](https://img.shields.io/badge/Code%20Coverage-$coverage-critical?style=flat)"
+         sed -i "s|!\[Code\ Coverage\]\(.*\)|$coverageBadge|" README.md
          head -12 README.md
          git config user.name silviuilie
          git config user.email silviuilie@gmail.com
