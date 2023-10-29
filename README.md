@@ -1,10 +1,7 @@
 reload-quartz
 ==============
 
-
-
-TEST2
-
+ 
 
 
 [![java/maven build](https://github.com/silviuilie/reload-quartz/actions/workflows/maven.yml/badge.svg)](https://github.com/silviuilie/reload-quartz/actions/workflows/maven.yml)
