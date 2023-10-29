@@ -71,7 +71,7 @@ public class QuartzUtilityControllerTest {
     }
 
     @Test
-    public void listChangeLog() throws SchedulerException {
+    public void interruptJob() throws SchedulerException {
 
         when(authorizationMock.authorize(httpSessionMock)).thenReturn(true);
 
@@ -99,6 +99,37 @@ public class QuartzUtilityControllerTest {
         verify(schedulerMock).getJobKeys(GroupMatcher.jobGroupEquals(groupName));
         verify(schedulerMock).getJobDetail(testKey);
         verify(schedulerMock).interrupt(testKey);
+
+    }
+    @Test
+    public void interruptJob_err() throws SchedulerException {
+
+        when(authorizationMock.authorize(httpSessionMock)).thenReturn(true);
+
+        final String groupName = "groupName";
+        final String target = "jobName";
+        when(schedulerMock.getJobGroupNames()).thenReturn(new ArrayList<String>() {{
+            add(groupName);
+        }});
+
+        final JobKey testKey = new JobKey(target, groupName);
+        when(schedulerMock.getJobKeys(GroupMatcher.jobGroupEquals(groupName))).thenReturn(
+                new HashSet<JobKey>() {{
+                    add(testKey);
+                }}
+        );
+        JobDetail detailMock = mock(JobDetail.class);
+        when(schedulerMock.getJobDetail(testKey)).thenReturn(detailMock);
+        when(detailMock.getKey()).thenReturn(testKey);
+        when(schedulerMock.interrupt(testKey)).thenThrow(new UnableToInterruptJobException("test"));
+
+        testedController.interruptJob(target, httpSessionMock);
+
+        verify(authorizationMock).authorize(httpSessionMock);
+
+        verify(schedulerMock).getJobGroupNames();
+        verify(schedulerMock).getJobKeys(GroupMatcher.jobGroupEquals(groupName));
+        verify(schedulerMock).getJobDetail(testKey);
 
     }
 

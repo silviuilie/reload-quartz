@@ -22,7 +22,6 @@ import static org.quartz.JobBuilder.newJob;
  */
 public class NOPJobDetail implements Job {
 
-    @Override
     public void execute(JobExecutionContext jobExecutionContext) throws JobExecutionException {
         log.debug(this.getClass().getName() + " executed.");
 
