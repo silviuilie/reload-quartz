@@ -53,6 +53,7 @@ jobs:
          echo "coverage direct : $coverage"
          coverage=$(echo "scale=2; ($covered / $total) * 100" | bc)
          echo "coverage *100 : $coverage"
+         echo "![Code Coverage](https://img.shields.io/badge/Code%20Coverage-$coverage%25-critical?style=flat)"
     # - uses: actions/upload-artifact@v2
       # with:
         # name: latest-coverage
