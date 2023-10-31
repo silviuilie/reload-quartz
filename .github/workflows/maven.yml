@@ -27,14 +27,8 @@ jobs:
         java-version: '8'
         distribution: temurin
         cache: maven
-    # - name: Build with Maven
-      # run: mvn clean verify -B package --file pom.xml
     - name: cov
-      # run: mvn test cobertura:cobertura  --file pom.xml 
-      run: mvn clean verify 
-      
-      # head -5 target/site/jacoco/jacoco.xml
-     # grep -m 1 '<counter type="INSTRUCTION" missed="\(.*\)' target/site/jacoco/jacoco.xml > cov.cov
+      run: mvn clean verify
      
      # export cov=$(sed -n -e '/counter type=\"INSTRUCTION"\(.*\)\/>\"/p' target/site/jacoco/jacoco.xml)
      
@@ -45,11 +39,7 @@ jobs:
          totalCov=$(grep -Po '(?<=</package><counter type="INSTRUCTION").*(?=/><counter type="BRANCH")'  target/site/jacoco/jacoco.xml)
          eval $totalCov
          total=$((missed+covered))
-         echo "missed    : $missed"
-         echo "covered   : $covered"
-         echo "total     : $total"
-         coverage=$(echo "scale=4; ($covered / $total)" | bc)
-         echo "coverage direct : $coverage"
+         echo "missed : $missed, covered   : $covered, total     : $total"
          coverage=$(echo "scale=2; ($covered / $total) * 100" | bc)
          echo "coverage *100 : $coverage" 
          coverageBadge="![Code Coverage](https://img.shields.io/badge/Code%20Coverage-$coverage-critical?style=flat)"
