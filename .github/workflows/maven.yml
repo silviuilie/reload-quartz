@@ -32,6 +32,8 @@ jobs:
 # todo : if same, skip
     - name: commit coverage to README file
       run: |
+         oldCov=$(grep -Po '(?<=Coverage-").*(?=-)'  README.md)
+         echo $oldCov
          totalCov=$(grep -Po '(?<=</package><counter type="INSTRUCTION").*(?=/><counter type="BRANCH")'  target/site/jacoco/jacoco.xml)
          eval $totalCov
          total=$((missed+covered))
