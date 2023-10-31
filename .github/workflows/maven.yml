@@ -29,11 +29,7 @@ jobs:
         cache: maven
     - name: cov
       run: mvn clean verify
-     
-     # export cov=$(sed -n -e '/counter type=\"INSTRUCTION"\(.*\)\/>\"/p' target/site/jacoco/jacoco.xml)
-     
-         # sed -n -e '/counter type=\"INSTRUCTION"\(.*\)\/>\"/p' target/site/jacoco/jacoco.xml > cov.cov
-         # cat cov.cov
+# todo : if same, skip
     - name: commit coverage to README file
       run: |
          totalCov=$(grep -Po '(?<=</package><counter type="INSTRUCTION").*(?=/><counter type="BRANCH")'  target/site/jacoco/jacoco.xml)
