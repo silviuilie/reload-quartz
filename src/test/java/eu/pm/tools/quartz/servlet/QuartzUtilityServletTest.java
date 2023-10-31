@@ -150,6 +150,26 @@ public class QuartzUtilityServletTest {
     }
 
     @Test
+    public void doPost_list() throws ServletException, IOException, SchedulerException {
+
+        when(httpRequestMock.getRequestURI()).thenReturn(QuartzUtility.QUARTZ_UTILITY_LIST_CHANGES);
+
+        when(httpRequestMock.getSession()).thenReturn(httpSessionMock);
+
+        when(authorizationMock.authorize(httpSessionMock)).thenReturn(true);
+
+
+        tested.doPost(httpRequestMock, httpResponseMock);
+
+
+        verify(httpRequestMock).getRequestURI();
+
+        verify(httpRequestMock).getSession();
+
+        verify(authorizationMock).authorize(httpSessionMock);
+    }
+
+    @Test
     public void doPost_resumeAll() throws ServletException, IOException, SchedulerException {
 
         when(httpRequestMock.getRequestURI()).thenReturn(QuartzUtility.QUARTZ_UTILITY_RESUME_ALL);
