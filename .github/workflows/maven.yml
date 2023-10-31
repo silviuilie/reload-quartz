@@ -40,6 +40,9 @@ jobs:
          echo "missed : $missed, covered   : $covered, total     : $total"
          coverage=$(echo "scale=2; ($covered / $total) * 100" | bc)
          echo "coverage *100 : $coverage" 
+         if [ $coverage -gt $oldCov]
+           echo 'green'
+         fi
          coverageBadge="![Code Coverage](https://img.shields.io/badge/Code%20Coverage-$coverage-critical?style=flat)"
          sed -i "s|!\[Code\ Coverage\]\(.*\)|$coverageBadge|" README.md
          head -12 README.md
