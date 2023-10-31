@@ -25,7 +25,6 @@ jobs:
       uses: actions/setup-java@v3
       with:
         java-version: '8'
-        # distribution: 'corretto'
         distribution: temurin
         cache: maven
     # - name: Build with Maven
