@@ -39,7 +39,8 @@ jobs:
          total=$((missed+covered))
          echo "missed : $missed, covered   : $covered, total     : $total"
          newCov=$(echo "scale=2; ($covered / $total) * 100" | bc)
-         echo " newCov *100 : $newCov" 
+         echo " newCov :[$newCov]" 
+         echo " oldCov :[$oldCov]"
          echo " newCov -gt oldCov / $newCov -gt $oldCov"
          if [ $newCov -gt $oldCov]
          then
