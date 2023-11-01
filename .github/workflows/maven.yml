@@ -33,14 +33,14 @@ jobs:
     - name: commit coverage to README file
       run: |
          oldCov=$(grep -Po '(?<=Coverage-).*(?=-)'  README.md)
-         echo 'oldCov $oldCov'
+         echo "oldCov $oldCov"
          totalCov=$(grep -Po '(?<=</package><counter type="INSTRUCTION").*(?=/><counter type="BRANCH")'  target/site/jacoco/jacoco.xml)
          eval $totalCov
          total=$((missed+covered))
          echo "missed : $missed, covered   : $covered, total     : $total"
          newCov=$(echo "scale=2; ($covered / $total) * 100" | bc)
          echo " newCov *100 : $newCov" 
-         echo " newCov -gt oldCov [$newCov -gt $oldCov]"
+         echo " newCov -gt oldCov / $newCov -gt $oldCov"
          if [ $newCov -gt $oldCov]
          then
            echo 'newCov > oldCov : green'
