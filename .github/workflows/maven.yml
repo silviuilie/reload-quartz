@@ -42,13 +42,11 @@ jobs:
          newCov=$(echo "scale=2; ($covered / $total) * 100" | bc)
          echo " newCov :[$newCov]" 
          echo " oldCov :[$oldCov]"
-         if (( $(echo "$newCov > $oldCov" | bc -l) ))
-         then
-           echo 'newCov > oldCov : green'
-         else 
-           echo 'newCov <= oldCov : red'
+         color="critical"
+         if (( $(echo "$newCov > $oldCov" | bc -l) )); then
+           color="success"
          fi
-         coverageBadge="![Code Coverage](https://img.shields.io/badge/Code%20Coverage-$newCov-critical?style=flat)"
+         coverageBadge="![Code Coverage](https://img.shields.io/badge/Code%20Coverage-$newCov-$color?style=flat)"
          sed -i "s|!\[Code\ Coverage\]\(.*\)|$coverageBadge|" README.md
          head -12 README.md
          git config user.name silviuilie
