@@ -42,7 +42,7 @@ jobs:
          echo " newCov :[$newCov]" 
          echo " oldCov :[$oldCov]"
          echo " newCov -gt oldCov / $newCov -gt $oldCov"
-         if [ $newCov -gt $oldCov ]
+         if [[ $newCov -gt $oldCov ]]
          then
            echo 'newCov > oldCov : green'
          else 
