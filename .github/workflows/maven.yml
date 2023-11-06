@@ -32,10 +32,10 @@ jobs:
 # todo : if same, skip 
 #         if [[ $newCov -gt $oldCov ]]
 
-    - name: cvg coverage
-      run: |
-         oldCov=$(grep -Po '(?<=aria-label=\"Coverage: ).*?(?=\">)' ./doc/badges/coverage.svg)
-         echo "oldCov $oldCov"
+    # - name: cvg coverage
+      # run: |
+         # oldCov=$(grep -Po '(?<=aria-label=\"Coverage: ).*?(?=\">)' ./doc/badges/coverage.svg)
+         # echo "oldCov $oldCov"
           
     - name: commit coverage to README file
       run: |
