@@ -34,7 +34,7 @@ jobs:
 
     - name: cvg coverage
       run: |
-         oldCov=$(grep -Po '(?<=aria-label=\"Coverage: ).*(?=\">)'  coverage.svg)
+         oldCov=$(grep -Po '(?<=aria-label=\"Coverage: ).*(?=\">)' ./doc/badges/coverage.svg)
          echo "oldCov $oldCov"
           
     - name: commit coverage to README file
