@@ -32,11 +32,17 @@ jobs:
 # todo : if same, skip 
 #         if [[ $newCov -gt $oldCov ]]
 
-    # - name: cvg coverage
-      # run: |
-         # oldCov=$(grep -Po '(?<=aria-label=\"Coverage: ).*?(?=\">)' ./doc/badges/coverage.svg)
-         # echo "oldCov $oldCov"
-          
+    - name: cvg coverage
+      run: |
+         oldCov=$(grep -Po '(?<=aria-label=\"Coverage: ).*?(?=\">)' ./doc/badges/coverage.svg)
+         echo "old coverage $oldCov"
+         echo "get new coverage"
+         totalCov=$(grep -Po '(?<=</package><counter type="INSTRUCTION").*(?=/><counter type="BRANCH")'  target/site/jacoco/jacoco.xml)
+         eval $totalCov
+         total=$((missed+covered))
+         echo "new coverage: missed : $missed, covered   : $covered, total     : $total"
+
+         
     - name: commit coverage to README file
       run: |
          oldCov=$(grep -Po '(?<=Coverage-).*(?=-)'  README.md)
