@@ -41,6 +41,7 @@ jobs:
          eval $totalCov
          total=$((missed+covered))
          echo " new coverage: missed : $missed, covered   : $covered, total     : $total"
+         newCov=$(echo "scale=2; ($covered / $total) * 100" | bc)
          echo " new coverage total :[$newCov]" 
 
          
