@@ -40,9 +40,10 @@ jobs:
          totalCov=$(grep -Po '(?<=</package><counter type="INSTRUCTION").*(?=/><counter type="BRANCH")'  target/site/jacoco/jacoco.xml)
          eval $totalCov
          total=$((missed+covered))
-         echo " new coverage: missed : $missed, covered   : $covered, total     : $total"
+         echo "missed : $missed, covered   : $covered, total     : $total"
          newCov=$(echo "scale=2; ($covered / $total) * 100" | bc)
-         echo " new coverage total :[$newCov]" 
+         echo " newCov :[$newCov]" 
+         echo " oldCov :[$oldCov]"
 
          
     - name: commit coverage to README file
