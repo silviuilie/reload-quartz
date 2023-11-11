@@ -45,7 +45,7 @@ jobs:
          echo " newCov :[$newCov]" 
          echo " oldCov :[$oldCov]"
          sed -i "s/$oldCov/$newCov/g" ./doc/badges/coverage.svg
-         cat ./doc/badges/coverage.sv
+         cat ./doc/badges/coverage.svg
 
          
     - name: commit coverage to README file
