@@ -47,6 +47,7 @@ jobs:
 
          
     - name: commit coverage to README file
+      if: ${{ false }}
       run: |
          oldCov=$(grep -Po '(?<=Coverage-).*(?=-)'  README.md)
          echo "oldCov $oldCov"
