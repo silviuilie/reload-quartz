@@ -44,6 +44,8 @@ jobs:
          newCov=$(echo "scale=2; ($covered / $total) * 100" | bc)
          echo " newCov :[$newCov]" 
          echo " oldCov :[$oldCov]"
+         sed -i "s|$oldCov|$newCov|" ./doc/badges/coverage.sv
+         cat ./doc/badges/coverage.sv
 
          
     - name: commit coverage to README file
