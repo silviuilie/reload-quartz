@@ -3,7 +3,7 @@ reload-quartz
 
 
 [![java/maven build](https://github.com/silviuilie/reload-quartz/actions/workflows/maven.yml/badge.svg)](https://github.com/silviuilie/reload-quartz/actions/workflows/maven.yml)
-[![Coverage](./doc/badges/coverage.svg)](./doc/site/jacoco/index.html)
+[![Coverage](./doc/badges/coverage.svg)](https://htmlpreview.github.io/?https://github.com/silviuilie/reload-quartz/blob/master/doc/site/jacoco/index.html)
 [![Dependency Status](https://www.versioneye.com/user/projects/54436bbf53acfaccc8000025/badge.svg?style=flat)](https://www.versioneye.com/user/projects/54436bbf53acfaccc8000025)
  
 <!--
