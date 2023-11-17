@@ -3,11 +3,14 @@ reload-quartz
 
 
 [![java/maven build](https://github.com/silviuilie/reload-quartz/actions/workflows/maven.yml/badge.svg)](https://github.com/silviuilie/reload-quartz/actions/workflows/maven.yml)
-![Code Coverage](https://img.shields.io/badge/Code%20Coverage-52.00-critical?style=flat)
+[![Coverage](./doc/badges/coverage.svg)](./doc/badges/coverage.svg)
 [![Dependency Status](https://www.versioneye.com/user/projects/54436bbf53acfaccc8000025/badge.svg?style=flat)](https://www.versioneye.com/user/projects/54436bbf53acfaccc8000025)
+ 
+<!--
+![Code Coverage](https://img.shields.io/badge/Code%20Coverage-58.00-success?style=flat)
+--> 
 
-
-
+ 
 [quartz-scheduler](http://quartz-scheduler.org/) utility 
 
 why  
