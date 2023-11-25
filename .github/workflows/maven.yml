@@ -47,7 +47,7 @@ jobs:
          echo " oldCov :[$oldCov]"
          sed -i "s/$oldCov/$newCov%/g" ./doc/badges/coverage.svg 
          cp ./target/site/jacoco/index.html ./doc/site/jacoco/index.html
-         sed  '<img[^>]*>//g' ./doc/site/jacoco/index.html 
+         sed -i "s/<img[^>]*>//g" ./doc/site/jacoco/index.html 
          git config user.name silviuilie
          git config user.email silviuilie@gmail.com
          git add ./doc/badges/coverage.svg  
