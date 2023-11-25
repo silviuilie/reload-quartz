@@ -31,6 +31,7 @@ jobs:
       run: mvn clean verify
 # todo : if same, skip 
 #         if [[ $newCov -gt $oldCov ]]
+# todo : add js action
 
     - name: svg coverage badge
       run: |
