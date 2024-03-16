@@ -33,6 +33,13 @@ jobs:
 #         if [[ $newCov -gt $oldCov ]]
 # todo : add js action
 
+    - name: publish coverage
+      uses: silviuilie/commit-jacoco-total-to-readme@0.1
+      with:
+        readmeFileName: 'README.md'
+        type : 'svg'
+        
+    # disabled
     - name: svg coverage badge
       run: |
          oldCov=$(grep -Po '(?<=aria-label=\"Coverage: ).*?(?=\">)' ./doc/badges/coverage.svg)
@@ -55,7 +62,7 @@ jobs:
          git commit -m "coverage update"
          git push 
 
-         
+    # disabled     
     - name: commit coverage to README file
       if: ${{ false }}
       run: |
