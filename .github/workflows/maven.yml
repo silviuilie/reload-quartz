@@ -34,7 +34,7 @@ jobs:
 # todo : add js action
 
     - name: publish coverage
-      uses: silviuilie/commit-jacoco-total-to-readme@0.1
+      uses: silviuilie/commit-jacoco-total-to-readme@0.2
       with:
         readmeFileName: 'README.md'
         type : 'svg'
